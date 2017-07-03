@@ -207,6 +207,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AnswerOptionsController.cs" />
+    <Compile Include="Controllers\ODataControllerBase.cs" />
     <Compile Include="Controllers\QuestionsController..cs" />
     <Compile Include="Controllers\UserAnswersController..cs" />
     <Compile Include="Controllers\UserFriendsController..cs" />
@@ -296,6 +297,10 @@
     <ProjectReference Include="..\AskAppBackEnd.Autofac.Integration\AskAppBackEnd.Autofac.Integration.csproj">
       <Project>{a7431fb2-af8f-4f49-90d7-0a13dfa41c24}</Project>
       <Name>AskAppBackEnd.Autofac.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AskAppBackEnd.Core\AskAppBackEnd.Core.csproj">
+      <Project>{225F1DB6-928C-4E2A-B81F-CC48E481C8D4}</Project>
+      <Name>AskAppBackEnd.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\AskAppBackEnd.Data\AskAppBackEnd.Data.csproj">
       <Project>{6A50F5A7-243F-4C36-A2A9-843CC266F2BC}</Project>
