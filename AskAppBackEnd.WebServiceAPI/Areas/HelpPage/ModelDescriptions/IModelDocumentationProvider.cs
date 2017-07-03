@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace DiscountCrazyAdmin.Areas.HelpPage.ModelDescriptions
+namespace AskAppBackEnd.Areas.HelpPage.ModelDescriptions
 {
     public interface IModelDocumentationProvider
     {

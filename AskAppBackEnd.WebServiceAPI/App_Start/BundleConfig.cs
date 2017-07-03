@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace DiscountCrazyAdmin
+namespace AskAppBackEnd
 {
     public class BundleConfig
     {

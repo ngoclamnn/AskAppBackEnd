@@ -1,12 +1,12 @@
-﻿using DiscountCrazyAdmin.Core;
-using DiscountCrazyAdmin.Data.Entities;
+﻿using AskAppBackEnd.Core;
+using AskAppBackEnd.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiscountCrazyAdmin.Data
+namespace AskAppBackEnd.Data
 {
     public class UserRepository : Repository<User>, IUserRepository
     {

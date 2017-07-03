@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace DiscountCrazyAdmin.Areas.HelpPage.ModelDescriptions
+namespace AskAppBackEnd.Areas.HelpPage.ModelDescriptions
 {
     internal static class ModelNameHelper
     {

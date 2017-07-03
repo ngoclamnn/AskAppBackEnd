@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 
-namespace DiscountCrazyAdmin.Core
+namespace AskAppBackEnd.Core
 {
     public interface IUnitOfWork : IDisposable
     {

@@ -64,15 +64,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DiscountCrazyAdmin.Core\DiscountCrazyAdmin.Core.csproj">
+    <ProjectReference Include="..\AskAppBackEnd.Core\AskAppBackEnd.Core.csproj">
       <Project>{225f1db6-928c-4e2a-b81f-cc48e481c8d4}</Project>
       <Name>AskAppBackEnd.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DiscountCrazyAdmin.Data\DiscountCrazyAdmin.Data.csproj">
+    <ProjectReference Include="..\AskAppBackEnd.Data\AskAppBackEnd.Data.csproj">
       <Project>{6a50f5a7-243f-4c36-a2a9-843cc266f2bc}</Project>
       <Name>AskAppBackEnd.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DiscountCrazyAdmin.Service\DiscountCrazyAdmin.Service.csproj">
+    <ProjectReference Include="..\AskAppBackEnd.Services\AskAppBackEnd.Service.csproj">
       <Project>{c0fcc038-e7b6-4293-9b66-4c482f7fa702}</Project>
       <Name>AskAppBackEnd.Service</Name>
     </ProjectReference>

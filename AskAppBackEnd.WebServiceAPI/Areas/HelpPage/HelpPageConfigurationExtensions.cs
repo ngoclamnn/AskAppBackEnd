@@ -11,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using DiscountCrazyAdmin.Areas.HelpPage.ModelDescriptions;
-using DiscountCrazyAdmin.Areas.HelpPage.Models;
+using AskAppBackEnd.Areas.HelpPage.ModelDescriptions;
+using AskAppBackEnd.Areas.HelpPage.Models;
 
-namespace DiscountCrazyAdmin.Areas.HelpPage
+namespace AskAppBackEnd.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

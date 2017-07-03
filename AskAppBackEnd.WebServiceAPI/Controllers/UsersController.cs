@@ -1,25 +1,27 @@
-﻿using DiscountCrazyAdmin.Data.Entities;
-using DiscountCrazyAdmin.Services;
+﻿using AskAppBackEnd.Data.Entities;
+using AskAppBackEnd.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.OData;
 
-namespace DiscountCrazyAdmin.Controllers
+namespace AskAppBackEnd.Controllers
 {
-    public class BusinessCategoryController : ApiController
+    public class UsersController : ODataController
     {
-        private readonly IApplicationService _applicationService;
-        public BusinessCategoryController(IApplicationService applicationService)
+        private readonly IUserService _userService;
+        public UsersController(IUserService userService)
         {
-            _applicationService = applicationService;
+            _userService = userService;
         }
 
-        public BusinessCategory Get(int id)
+        [EnableQuery]
+        public IQueryable<User> Get()
         {
-            return _applicationService.GetBusinessCategoryById(id);
+            return _userService.GetUsers();
         }
     }
 }

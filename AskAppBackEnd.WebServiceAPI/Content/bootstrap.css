@@ -2010,11 +2010,11 @@ textarea.input-lg {
   cursor: pointer;
   border: 1px solid transparent;
   border-radius: 4px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-       -o-user-select: none;
-          user-select: none;
+  -webkit-UserPollingAnswer-select: none;
+     -moz-UserPollingAnswer-select: none;
+      -ms-UserPollingAnswer-select: none;
+       -o-UserPollingAnswer-select: none;
+          UserPollingAnswer-select: none;
 }
 
 .btn:focus {
@@ -2463,7 +2463,7 @@ input[type="button"].btn-block {
   content: "\e007";
 }
 
-.glyphicon-user:before {
+.glyphicon-UserPollingAnswer:before {
   content: "\e008";
 }
 

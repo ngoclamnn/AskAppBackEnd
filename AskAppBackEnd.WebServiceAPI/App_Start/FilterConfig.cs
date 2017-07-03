@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace DiscountCrazyAdmin
+namespace AskAppBackEnd
 {
     public class FilterConfig
     {

@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AskAppBackEnd.Service</RootNamespace>
-    <AssemblyName>DiscountCrazyAdmin.Service</AssemblyName>
+    <AssemblyName>AskAppBackEnd.Service</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,18 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AskingService.cs" />
     <Compile Include="ApplicationService.cs" />
-    <Compile Include="DiscountService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StoreService.cs" />
     <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DiscountCrazyAdmin.Core\DiscountCrazyAdmin.Core.csproj">
+    <ProjectReference Include="..\AskAppBackEnd.Core\AskAppBackEnd.Core.csproj">
       <Project>{225F1DB6-928C-4E2A-B81F-CC48E481C8D4}</Project>
       <Name>AskAppBackEnd.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DiscountCrazyAdmin.Data\DiscountCrazyAdmin.Data.csproj">
+    <ProjectReference Include="..\AskAppBackEnd.Data\AskAppBackEnd.Data.csproj">
       <Project>{6A50F5A7-243F-4C36-A2A9-843CC266F2BC}</Project>
       <Name>AskAppBackEnd.Data</Name>
     </ProjectReference>

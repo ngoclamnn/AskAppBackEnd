@@ -1,6 +1,5 @@
-namespace DiscountCrazyAdmin.Data.Entities
+namespace AskAppBackEnd.Data.Entities
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -12,48 +11,89 @@ namespace DiscountCrazyAdmin.Data.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            Stores = new HashSet<Store>();
+            Questions = new HashSet<Question>();
+            UserAnswers = new HashSet<UserAnswer>();
+            UserFriends = new HashSet<UserFriend>();
+            UserLocations = new HashSet<UserLocation>();
+            UserNotifications = new HashSet<UserNotification>();
+            UserPollingAnswers = new HashSet<UserPollingAnswer>();
+            UserPreferences = new HashSet<UserPreference>();
+            UserResponses = new HashSet<UserResponse>();
         }
 
-        public int id { get; set; }
+        public Guid Id { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        public string first_name { get; set; }
+        [StringLength(200)]
+        public string Email { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        public string last_name { get; set; }
+        [StringLength(200)]
+        public string Password { get; set; }
 
-        [Required]
+        [StringLength(200)]
+        public string Firstname { get; set; }
+
+        [StringLength(200)]
+        public string Lastname { get; set; }
+
+        [StringLength(200)]
+        public string FacebookAccount { get; set; }
+
+        public DateTime? DOB { get; set; }
+
         [StringLength(50)]
-        public string username { get; set; }
+        public string Gender { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string password { get; set; }
+        [StringLength(200)]
+        public string Nationality { get; set; }
 
-        [Required]
+        [StringLength(2000)]
+        public string Interests { get; set; }
+
+        public bool IsVisible { get; set; }
+
+        public bool IsNotified { get; set; }
+
+        public bool? DisplayUserProfile { get; set; }
+
         [StringLength(250)]
-        public string email { get; set; }
+        public string AboutMe { get; set; }
 
-        public bool active { get; set; }
+        public string ProfilePicture { get; set; }
 
-        public bool is_admin { get; set; }
+        [StringLength(200)]
+        public string DeviceId { get; set; }
 
-        public DateTime created { get; set; }
-
-        [Required]
         [StringLength(50)]
-        public string created_by { get; set; }
+        public string Status { get; set; }
 
-        public DateTime modified { get; set; }
+        public bool IsDeleted { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string modified_by { get; set; }
-        [JsonIgnore]
+        public DateTime LastEditDate { get; set; }
+
+        public DateTime CreationDate { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Store> Stores { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserAnswer> UserAnswers { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserFriend> UserFriends { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserLocation> UserLocations { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserNotification> UserNotifications { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserPollingAnswer> UserPollingAnswers { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserPreference> UserPreferences { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserResponse> UserResponses { get; set; }
     }
 }

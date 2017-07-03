@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace DiscountCrazyAdmin.Core
+namespace AskAppBackEnd.Core
 {
     public interface IRepository<T>
 

@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AskAppBackEnd.Data</RootNamespace>
-    <AssemblyName>DiscountCrazyAdmin.Data</AssemblyName>
+    <AssemblyName>AskAppBackEnd.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -53,30 +53,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\BusinessCategory.cs" />
-    <Compile Include="Entities\Code.cs" />
-    <Compile Include="Entities\CodeUsedHistory.cs" />
-    <Compile Include="DiscountCrazyAdminContext.cs" />
-    <Compile Include="DiscountCrazyAdminUnitOfWork.cs" />
-    <Compile Include="Entities\DiscountType.cs" />
-    <Compile Include="Entities\Promotion.cs" />
-    <Compile Include="Entities\PromotionCode.cs" />
-    <Compile Include="Repositories\StoreRepository.cs" />
-    <Compile Include="Repositories\PromotionRepository.cs" />
-    <Compile Include="Repositories\UserRepository.cs" />
-    <Compile Include="Repositories\PromotionCodeRepository.cs" />
-    <Compile Include="Repositories\DiscountTypesRepository.cs" />
-    <Compile Include="Repositories\CodeUsedHistoryRepository.cs" />
-    <Compile Include="Repositories\CodeRepository.cs" />
-    <Compile Include="Repositories\BusinessCategoryRepository.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entities\Store.cs" />
-    <Compile Include="Entities\StoreCode.cs" />
-    <Compile Include="Entities\sysdiagram.cs" />
+    <Compile Include="AskAppContext.cs" />
+    <Compile Include="AskAppUnitOfWork.cs" />
+    <Compile Include="Entities\AnswerOption.cs" />
+    <Compile Include="Entities\Question.cs" />
+    <Compile Include="Entities\QuestionMedia.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserAnswer.cs" />
+    <Compile Include="Entities\UserFriend.cs" />
+    <Compile Include="Entities\UserLocation.cs" />
+    <Compile Include="Entities\UserNotification.cs" />
+    <Compile Include="Entities\UserPollingAnswer.cs" />
+    <Compile Include="Entities\UserPreference.cs" />
+    <Compile Include="Entities\UserRespons.cs" />
+    <Compile Include="Repositories\UserAnswerRepository.cs" />
+    <Compile Include="Repositories\UserFriendRepository.cs" />
+    <Compile Include="Repositories\UserPollingAnswerRepository.cs" />
+    <Compile Include="Repositories\UserPreferenceRepository.cs" />
+    <Compile Include="Repositories\UserResponsRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\UserLocationRepository.cs" />
+    <Compile Include="Repositories\UserNotificationRepository.cs" />
+    <Compile Include="Repositories\QuestionMediaRepository.cs" />
+    <Compile Include="Repositories\QuestionRepository.cs" />
+    <Compile Include="Repositories\AnswerOptionRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DiscountCrazyAdmin.Core\DiscountCrazyAdmin.Core.csproj">
+    <ProjectReference Include="..\AskAppBackEnd.Core\AskAppBackEnd.Core.csproj">
       <Project>{225f1db6-928c-4e2a-b81f-cc48e481c8d4}</Project>
       <Name>AskAppBackEnd.Core</Name>
     </ProjectReference>

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace DiscountCrazyAdmin.Areas.HelpPage.ModelDescriptions
+namespace AskAppBackEnd.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterDescription
     {

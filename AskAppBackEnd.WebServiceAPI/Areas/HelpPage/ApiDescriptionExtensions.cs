@@ -3,7 +3,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Description;
 
-namespace DiscountCrazyAdmin.Areas.HelpPage
+namespace AskAppBackEnd.Areas.HelpPage
 {
     public static class ApiDescriptionExtensions
     {

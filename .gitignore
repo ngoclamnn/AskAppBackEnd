@@ -3,3 +3,13 @@
 ################################################################################
 
 /AskAppBackEnd.Autofac.Integration/bin/Debug
+/AskAppBackEnd.Autofac.Integration/obj/Debug
+/AskAppBackEnd.Core/bin/Debug
+/AskAppBackEnd.Core/obj/Debug
+/AskAppBackEnd.Data/bin/Debug
+/AskAppBackEnd.Data/obj/Debug
+/AskAppBackEnd.Services/bin/Debug
+/AskAppBackEnd.Services/obj/Debug
+/AskAppBackEnd.WebServiceAPI/bin
+/AskAppBackEnd.WebServiceAPI/obj/Debug
+/packages

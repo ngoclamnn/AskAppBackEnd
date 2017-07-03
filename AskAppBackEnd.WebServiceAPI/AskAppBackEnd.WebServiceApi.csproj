@@ -60,6 +60,21 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.1.0.0\lib\netstandard1.1\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Core, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.OData.Core.7.0.0\lib\portable-net45+win8+wpa81\Microsoft.OData.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Edm, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.OData.Edm.7.0.0\lib\portable-net45+win8+wpa81\Microsoft.OData.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Spatial.7.0.0\lib\portable-net45+win8+wpa81\Microsoft.Spatial.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -68,6 +83,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.OData, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.OData.6.0.0\lib\net45\System.Web.OData.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
@@ -187,16 +205,17 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Controllers\StoresController.cs" />
-    <Compile Include="Controllers\ServicesController.cs" />
-    <Compile Include="Controllers\PromotionsController.cs" />
-    <Compile Include="Controllers\PromotionCodesController.cs" />
-    <Compile Include="Controllers\DiscountTypesController.cs" />
-    <Compile Include="Controllers\CodesController.cs" />
-    <Compile Include="Controllers\CodesUsedController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\StoreCodesController.cs" />
+    <Compile Include="Controllers\AnswerOptionsController.cs" />
+    <Compile Include="Controllers\QuestionsController..cs" />
+    <Compile Include="Controllers\UserAnswersController..cs" />
+    <Compile Include="Controllers\UserFriendsController..cs" />
+    <Compile Include="Controllers\UserLocationsController.cs" />
+    <Compile Include="Controllers\UserNotificationsController.cs" />
+    <Compile Include="Controllers\UserPollingAnswersController.cs" />
+    <Compile Include="Controllers\UserPreferencesController.cs" />
+    <Compile Include="Controllers\UserResponsesController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -274,15 +293,15 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DiscountCrazyAdmin.Autofac.Integration\DiscountCrazyAdmin.Autofac.Integration.csproj">
+    <ProjectReference Include="..\AskAppBackEnd.Autofac.Integration\AskAppBackEnd.Autofac.Integration.csproj">
       <Project>{a7431fb2-af8f-4f49-90d7-0a13dfa41c24}</Project>
       <Name>AskAppBackEnd.Autofac.Integration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DiscountCrazyAdmin.Data\DiscountCrazyAdmin.Data.csproj">
+    <ProjectReference Include="..\AskAppBackEnd.Data\AskAppBackEnd.Data.csproj">
       <Project>{6A50F5A7-243F-4C36-A2A9-843CC266F2BC}</Project>
       <Name>AskAppBackEnd.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DiscountCrazyAdmin.Service\DiscountCrazyAdmin.Service.csproj">
+    <ProjectReference Include="..\AskAppBackEnd.Services\AskAppBackEnd.Service.csproj">
       <Project>{c0fcc038-e7b6-4293-9b66-4c482f7fa702}</Project>
       <Name>AskAppBackEnd.Service</Name>
     </ProjectReference>

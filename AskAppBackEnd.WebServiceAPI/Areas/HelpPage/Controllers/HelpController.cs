@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using DiscountCrazyAdmin.Areas.HelpPage.ModelDescriptions;
-using DiscountCrazyAdmin.Areas.HelpPage.Models;
+using AskAppBackEnd.Areas.HelpPage.ModelDescriptions;
+using AskAppBackEnd.Areas.HelpPage.Models;
 
-namespace DiscountCrazyAdmin.Areas.HelpPage.Controllers
+namespace AskAppBackEnd.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

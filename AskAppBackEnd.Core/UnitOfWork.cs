@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiscountCrazyAdmin.Core
+namespace AskAppBackEnd.Core
 {
     public class UnitOfWork : IUnitOfWork
     {

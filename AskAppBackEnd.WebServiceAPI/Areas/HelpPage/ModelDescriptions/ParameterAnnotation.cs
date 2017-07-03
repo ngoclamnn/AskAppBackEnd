@@ -1,6 +1,6 @@
 using System;
 
-namespace DiscountCrazyAdmin.Areas.HelpPage.ModelDescriptions
+namespace AskAppBackEnd.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterAnnotation
     {

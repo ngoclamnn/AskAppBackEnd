@@ -1,6 +1,6 @@
 using System;
 
-namespace DiscountCrazyAdmin.Areas.HelpPage
+namespace AskAppBackEnd.Areas.HelpPage
 {
     /// <summary>
     /// This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.

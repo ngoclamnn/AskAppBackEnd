@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiscountCrazyAdmin.Autofac.Integration
+namespace AskAppBackEnd.Autofac.Integration
 {
     public static class AutofacRegister
     {
