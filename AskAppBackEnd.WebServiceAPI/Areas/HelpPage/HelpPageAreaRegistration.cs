@@ -1,7 +1,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace AskAppBackEnd.Areas.HelpPage
+namespace AskAppBackEnd.WebServiceAPI.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

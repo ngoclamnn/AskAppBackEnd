@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AskAppBackEnd")]
+[assembly: AssemblyTitle("AskAppBackEnd.WebServiceAPI")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AskAppBackEnd")]
+[assembly: AssemblyProduct("AskAppBackEnd.WebServiceAPI")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6cb990ca-cf1b-4d13-8174-57c9de182ab7")]
+[assembly: Guid("bc23afe1-08f1-41c8-8207-8b1738bbe3f1")]
 
 // Version information for an assembly consists of the following four values:
 //

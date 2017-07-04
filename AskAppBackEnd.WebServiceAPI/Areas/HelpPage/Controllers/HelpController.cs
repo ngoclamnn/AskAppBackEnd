@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using AskAppBackEnd.Areas.HelpPage.ModelDescriptions;
-using AskAppBackEnd.Areas.HelpPage.Models;
+using AskAppBackEnd.WebServiceAPI.Areas.HelpPage.ModelDescriptions;
+using AskAppBackEnd.WebServiceAPI.Areas.HelpPage.Models;
 
-namespace AskAppBackEnd.Areas.HelpPage.Controllers
+namespace AskAppBackEnd.WebServiceAPI.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

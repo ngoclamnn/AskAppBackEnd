@@ -6,10 +6,8 @@ namespace AskAppBackEnd.Data.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class UserPollingAnswer
+    public partial class UserPollingAnswer : EntityBase
     {
-        public Guid Id { get; set; }
-
         public Guid UserId { get; set; }
 
         public Guid QuestionId { get; set; }

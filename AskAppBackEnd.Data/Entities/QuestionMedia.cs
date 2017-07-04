@@ -6,10 +6,8 @@ namespace AskAppBackEnd.Data.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class QuestionMedia
+    public partial class QuestionMedia : EntityBase
     {
-        public Guid Id { get; set; }
-
         public Guid QuestionId { get; set; }
 
         [Required]

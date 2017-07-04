@@ -6,10 +6,8 @@ namespace AskAppBackEnd.Data.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class UserPreference
+    public partial class UserPreference : EntityBase
     {
-        public Guid Id { get; set; }
-
         public Guid UserId { get; set; }
 
         public int? SearchRadius { get; set; }

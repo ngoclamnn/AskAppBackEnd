@@ -11,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using AskAppBackEnd.Areas.HelpPage.ModelDescriptions;
-using AskAppBackEnd.Areas.HelpPage.Models;
+using AskAppBackEnd.WebServiceAPI.Areas.HelpPage.ModelDescriptions;
+using AskAppBackEnd.WebServiceAPI.Areas.HelpPage.Models;
 
-namespace AskAppBackEnd.Areas.HelpPage
+namespace AskAppBackEnd.WebServiceAPI.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

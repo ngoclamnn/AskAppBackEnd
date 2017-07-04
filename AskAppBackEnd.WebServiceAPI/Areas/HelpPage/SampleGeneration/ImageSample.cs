@@ -1,6 +1,6 @@
 using System;
 
-namespace AskAppBackEnd.Areas.HelpPage
+namespace AskAppBackEnd.WebServiceAPI.Areas.HelpPage
 {
     /// <summary>
     /// This represents an image sample on the help page. There's a display template named ImageSample associated with this class.

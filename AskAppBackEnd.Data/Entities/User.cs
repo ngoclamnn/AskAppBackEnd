@@ -6,7 +6,7 @@ namespace AskAppBackEnd.Data.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class User
+    public partial class User : EntityBase
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
@@ -20,9 +20,6 @@ namespace AskAppBackEnd.Data.Entities
             UserPreferences = new HashSet<UserPreference>();
             UserResponses = new HashSet<UserResponse>();
         }
-
-        public Guid Id { get; set; }
-
         [StringLength(200)]
         public string Email { get; set; }
 

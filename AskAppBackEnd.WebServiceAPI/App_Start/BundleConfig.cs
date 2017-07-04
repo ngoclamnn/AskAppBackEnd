@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace AskAppBackEnd
+namespace AskAppBackEnd.WebServiceAPI
 {
     public class BundleConfig
     {

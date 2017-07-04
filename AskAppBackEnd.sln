@@ -1,10 +1,7 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskAppBackEnd.WebServiceApi", "AskAppBackEnd.WebServiceApi\AskAppBackEnd.WebServiceApi.csproj", "{A3F906D6-DA03-4313-8F67-9B8A6DF01344}"AskAppBackEnd
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskAppBackEnd.Service", "AskAppBackEnd.Services\AskAppBackEnd.Service.csproj", "{C0FCC038-E7B6-4293-9B66-4C482F7FA702}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskAppBackEnd.Core", "AskAppBackEnd.Core\AskAppBackEnd.Core.csproj", "{225F1DB6-928C-4E2A-B81F-CC48E481C8D4}"
@@ -13,16 +10,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskAppBackEnd.Data", "AskAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskAppBackEnd.Autofac.Integration", "AskAppBackEnd.Autofac.Integration\AskAppBackEnd.Autofac.Integration.csproj", "{A7431FB2-AF8F-4F49-90D7-0A13DFA41C24}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskAppBackEnd.WebServiceAPI", "AskAppBackEnd.WebServiceAPI\AskAppBackEnd.WebServiceAPI.csproj", "{E55089F8-68F3-4268-B9B1-37E63D4411E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A3F906D6-DA03-4313-8F67-9B8A6DF01344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3F906D6-DA03-4313-8F67-9B8A6DF01344}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3F906D6-DA03-4313-8F67-9B8A6DF01344}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3F906D6-DA03-4313-8F67-9B8A6DF01344}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C0FCC038-E7B6-4293-9B66-4C482F7FA702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C0FCC038-E7B6-4293-9B66-4C482F7FA702}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0FCC038-E7B6-4293-9B66-4C482F7FA702}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +34,10 @@ Global
 		{A7431FB2-AF8F-4F49-90D7-0A13DFA41C24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7431FB2-AF8F-4F49-90D7-0A13DFA41C24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7431FB2-AF8F-4F49-90D7-0A13DFA41C24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E55089F8-68F3-4268-B9B1-37E63D4411E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E55089F8-68F3-4268-B9B1-37E63D4411E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E55089F8-68F3-4268-B9B1-37E63D4411E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E55089F8-68F3-4268-B9B1-37E63D4411E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

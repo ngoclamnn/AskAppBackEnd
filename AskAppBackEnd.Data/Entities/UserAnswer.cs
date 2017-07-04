@@ -6,16 +6,13 @@ namespace AskAppBackEnd.Data.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class UserAnswer
+    public partial class UserAnswer : EntityBase
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UserAnswer()
         {
             UserResponses = new HashSet<UserResponse>();
         }
-
-        public Guid Id { get; set; }
-
         public Guid QuestionId { get; set; }
 
         public Guid? UserAnswerId { get; set; }

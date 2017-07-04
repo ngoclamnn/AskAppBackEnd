@@ -1,4 +1,4 @@
-namespace AskAppBackEnd.Areas.HelpPage.ModelDescriptions
+namespace AskAppBackEnd.WebServiceAPI.Areas.HelpPage.ModelDescriptions
 {
     public class SimpleTypeModelDescription : ModelDescription
     {
