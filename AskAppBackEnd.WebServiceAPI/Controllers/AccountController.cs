@@ -78,7 +78,7 @@ namespace AskAppBackEnd.WebServiceAPI.Controllers
         [Route("ManageInfo")]
         public async Task<ManageInfoViewModel> GetManageInfo(string returnUrl, bool generateState = false)
         {
-            IdentityUser user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            var user = await UserManager.FindByIdAsync(new Guid(User.Identity.GetUserId()));
 
             if (user == null)
             {
@@ -87,7 +87,7 @@ namespace AskAppBackEnd.WebServiceAPI.Controllers
 
             List<UserLoginInfoViewModel> logins = new List<UserLoginInfoViewModel>();
 
-            foreach (IdentityUserLogin linkedAccount in user.Logins)
+            foreach (ApplicationUserLogin linkedAccount in user.Logins)
             {
                 logins.Add(new UserLoginInfoViewModel
                 {
@@ -123,7 +123,7 @@ namespace AskAppBackEnd.WebServiceAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
+            var result = await UserManager.ChangePasswordAsync(new Guid(User.Identity.GetUserId()), model.OldPassword,
                 model.NewPassword);
             
             if (!result.Succeeded)
@@ -143,7 +143,7 @@ namespace AskAppBackEnd.WebServiceAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            IdentityResult result = await UserManager.AddPasswordAsync(User.Identity.GetUserId(), model.NewPassword);
+            IdentityResult result = await UserManager.AddPasswordAsync(new Guid(User.Identity.GetUserId()), model.NewPassword);
 
             if (!result.Succeeded)
             {
@@ -180,7 +180,7 @@ namespace AskAppBackEnd.WebServiceAPI.Controllers
                 return BadRequest("The external login is already associated with an account.");
             }
 
-            IdentityResult result = await UserManager.AddLoginAsync(User.Identity.GetUserId(),
+            IdentityResult result = await UserManager.AddLoginAsync(new Guid(User.Identity.GetUserId()),
                 new UserLoginInfo(externalData.LoginProvider, externalData.ProviderKey));
 
             if (!result.Succeeded)
@@ -204,11 +204,11 @@ namespace AskAppBackEnd.WebServiceAPI.Controllers
 
             if (model.LoginProvider == LocalLoginProvider)
             {
-                result = await UserManager.RemovePasswordAsync(User.Identity.GetUserId());
+                result = await UserManager.RemovePasswordAsync(new Guid(User.Identity.GetUserId()));
             }
             else
             {
-                result = await UserManager.RemoveLoginAsync(User.Identity.GetUserId(),
+                result = await UserManager.RemoveLoginAsync(new Guid(User.Identity.GetUserId()),
                     new UserLoginInfo(model.LoginProvider, model.ProviderKey));
             }
 
@@ -329,7 +329,12 @@ namespace AskAppBackEnd.WebServiceAPI.Controllers
             }
 
             var user = new ApplicationUser() { UserName = model.Username, Email = model.Email };
-            user.CreationDate = user.LastEditDate = DateTime.Now;
+            //user.User = new Models.User
+            //{
+            //    Id = new Guid(user.Id),
+            //    CreationDate = DateTime.Now,
+            //    LastEditDate = DateTime.Now
+            //};
             user.PhoneNumber = user.PhoneNumber = user.PhoneNumber = user.PhoneNumber = "";
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
