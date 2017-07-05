@@ -328,13 +328,8 @@ namespace AskAppBackEnd.WebServiceAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Username, Email = model.Email };
-            //user.User = new Models.User
-            //{
-            //    Id = new Guid(user.Id),
-            //    CreationDate = DateTime.Now,
-            //    LastEditDate = DateTime.Now
-            //};
+            var user = new ApplicationUser() { UserName = model.Username, Email = model.Email, CreationDate = DateTime.Now, LastEditDate = DateTime.Now };
+            user.Id = Guid.NewGuid();
             user.PhoneNumber = user.PhoneNumber = user.PhoneNumber = user.PhoneNumber = "";
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 

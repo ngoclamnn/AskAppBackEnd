@@ -28,8 +28,8 @@ namespace AskAppBackEnd.WebServiceAPI
 
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider
-            app.UseCookieAuthentication(new CookieAuthenticationOptions());
-            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+            //app.UseCookieAuthentication(new CookieAuthenticationOptions());
+            //app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             // Configure the application for OAuth based flow
             PublicClientId = "self";
@@ -38,10 +38,10 @@ namespace AskAppBackEnd.WebServiceAPI
                 TokenEndpointPath = new PathString("/Token"),
                 Provider = new ApplicationOAuthProvider(PublicClientId),
                 AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
+                AccessTokenExpireTimeSpan = TimeSpan.FromSeconds(60),
                 // In production mode set AllowInsecureHttp = false
                 AllowInsecureHttp = true,
-               
+                //RefreshTokenProvider = new RefreshTokenProvider()
             };
 
             // Enable the application to use bearer tokens to authenticate users
