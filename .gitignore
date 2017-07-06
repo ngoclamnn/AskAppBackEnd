@@ -3,6 +3,7 @@
 ################################################################################
 
 /AskAppBackEnd.Autofac.Integration/bin/Debug
+/.vs
 /AskAppBackEnd.Autofac.Integration/obj/Debug
 /AskAppBackEnd.Core/bin/Debug
 /AskAppBackEnd.Core/obj/Debug
