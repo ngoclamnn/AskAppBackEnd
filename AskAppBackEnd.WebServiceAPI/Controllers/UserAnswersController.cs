@@ -10,6 +10,7 @@ using System.Web.OData;
 
 namespace AskAppBackEnd.Controllers
 {
+    [Authorize]
     public class UserAnswersController : ODataController
     {
         private readonly IAskingService _askingService;
