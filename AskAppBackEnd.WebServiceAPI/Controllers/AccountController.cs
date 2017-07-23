@@ -323,22 +323,32 @@ namespace AskAppBackEnd.WebServiceAPI.Controllers
         [Route("Register")]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                if (String.IsNullOrEmpty(model.Username))
+                    model.Username = model.Email;
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var user = new ApplicationUser() { UserName = model.Username, Email = model.Email, CreationDate = DateTime.Now, LastEditDate = DateTime.Now };
+                user.Id = Guid.NewGuid();
+                user.PhoneNumber = user.PhoneNumber = user.PhoneNumber = user.PhoneNumber = "";
+                IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+
+                if (!result.Succeeded)
+                {
+                    return GetErrorResult(result);
+                }
+
+                return Ok();
             }
-
-            var user = new ApplicationUser() { UserName = model.Username, Email = model.Email, CreationDate = DateTime.Now, LastEditDate = DateTime.Now };
-            user.Id = Guid.NewGuid();
-            user.PhoneNumber = user.PhoneNumber = user.PhoneNumber = user.PhoneNumber = "";
-            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
-
-            if (!result.Succeeded)
+            catch (Exception ex)
             {
-                return GetErrorResult(result);
+                return InternalServerError();
             }
-
-            return Ok();
         }
 
         // POST api/Account/RegisterExternal

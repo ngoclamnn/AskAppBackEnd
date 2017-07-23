@@ -67,6 +67,8 @@ namespace AskAppBackEnd
             entitySet9.EntityType.HasKey(entity => entity.Id);
             var entitySet10 = builder.EntitySet<User>("users");
             entitySet10.EntityType.HasKey(entity => entity.Id);
+            var entitySet11 = builder.EntitySet<UserPreference>("userpreferences");
+            entitySet11.EntityType.HasKey(entity => entity.Id);
 
             return builder.GetEdmModel();
         }

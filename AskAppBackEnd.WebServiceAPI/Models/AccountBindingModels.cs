@@ -34,7 +34,6 @@ namespace AskAppBackEnd.WebServiceAPI.Models
 
     public class RegisterBindingModel
     {
-        [Required]
         [Display(Name = "Username")]
         public string Username { get; set; }
         [Display(Name = "Email")]

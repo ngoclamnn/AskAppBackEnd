@@ -1,4 +1,5 @@
-﻿using AskAppBackEnd.Data.Entities;
+﻿using AskAppBackEnd.Core;
+using AskAppBackEnd.Data.Entities;
 using AskAppBackEnd.Services;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,11 @@ using System.Web.OData;
 
 namespace AskAppBackEnd.Controllers
 {
-    public class UserFriendsController : ODataController
+    [Authorize]
+    public class UserFriendsController : ODataControllerBase<UserFriend>
     {
         private readonly IUserService _userService;
-        public UserFriendsController(IUserService userService)
+        public UserFriendsController(IUserService userService, IUnitOfWork unitOfWork): base(unitOfWork)
         {
             _userService = userService;
         }
