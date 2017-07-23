@@ -1,4 +1,5 @@
-﻿using AskAppBackEnd.Data.Entities;
+﻿using AskAppBackEnd.Core;
+using AskAppBackEnd.Data.Entities;
 using AskAppBackEnd.Services;
 using System;
 using System.Collections.Generic;
@@ -11,18 +12,13 @@ using System.Web.OData;
 namespace AskAppBackEnd.Controllers
 {
     [Authorize]
-    public class AnswerOptionsController : ODataController
+    public class AnswerOptionsController : ODataControllerBase<AnswerOption>
     {
         private readonly IAskingService _askingService;
-        public AnswerOptionsController(IAskingService askingService)
+        public AnswerOptionsController(IAskingService askingService, IUnitOfWork unitOfWork) : base(unitOfWork)
         {
             _askingService = askingService;
         }
-
-        [EnableQuery]
-        public IQueryable<AnswerOption> Get()
-        {
-            return _askingService.GetAnswerOptions();
-        }
+        
     }
 }
