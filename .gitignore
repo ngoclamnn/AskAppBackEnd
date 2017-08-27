@@ -16,3 +16,6 @@
 /packages
 /AskAppBackEndOld.WebServiceAPI/bin
 /AskAppBackEndOld.WebServiceAPI/obj/Debug
+/AskAppBackEnd.Autofac.Integration/obj/Release/CoreCompileInputs.cache
+/AskAppBackEnd.Data/obj/Release/CoreCompileInputs.cache
+/AskAppBackEnd.Core/obj/Release/CoreCompileInputs.cache
