@@ -19,3 +19,7 @@
 /AskAppBackEnd.Autofac.Integration/obj/Release/CoreCompileInputs.cache
 /AskAppBackEnd.Data/obj/Release/CoreCompileInputs.cache
 /AskAppBackEnd.Core/obj/Release/CoreCompileInputs.cache
+/AskApp.Website/bin/roslyn
+/AskApp.Website/bin
+/AskApp.Website/obj/Debug
+
