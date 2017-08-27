@@ -8,6 +8,9 @@ namespace AskAppBackEnd.WebServiceAPI
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+
+            //in production uncommented this filter
+            //filters.Add(new RequireHttpsAttribute());
         }
     }
 }

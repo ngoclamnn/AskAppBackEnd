@@ -157,5 +157,6 @@ namespace AskAppBackEnd.WebServiceAPI.Models
 
         }
 
+        //public System.Data.Entity.DbSet<AskAppBackEnd.WebServiceAPI.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

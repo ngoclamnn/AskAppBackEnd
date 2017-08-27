@@ -1,4 +1,5 @@
-﻿using AskAppBackEnd.Data.Entities;
+﻿using AskAppBackEnd.Core;
+using AskAppBackEnd.Data.Entities;
 using AskAppBackEnd.Services;
 using System;
 using System.Collections.Generic;
@@ -10,18 +11,13 @@ using System.Web.OData;
 
 namespace AskAppBackEnd.Controllers
 {
-    public class UserPreferencesController : ODataController
+    [Authorize]
+    public class UserPreferencesController : ODataControllerBase<UserPreference>
     {
         private readonly IUserService _userService;
-        public UserPreferencesController(IUserService userService)
+        public UserPreferencesController(IUserService userService, IUnitOfWork unitOfWork) : base(unitOfWork)
         {
             _userService = userService;
-        }
-
-        [EnableQuery]
-        public IQueryable<UserPreference> Get()
-        {
-            return _userService.GetUserPreferences();
         }
     }
 }

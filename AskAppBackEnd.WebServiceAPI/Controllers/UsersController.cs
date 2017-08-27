@@ -11,6 +11,7 @@ using System.Web.OData;
 
 namespace AskAppBackEnd.Controllers
 {
+    [Authorize]
     public class UsersController : ODataControllerBase<User>
     {
         private readonly IUserService _userService;
