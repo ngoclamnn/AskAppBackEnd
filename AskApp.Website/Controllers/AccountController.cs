@@ -402,6 +402,11 @@ namespace AskApp.Website.Controllers
         {
             return View();
         }
+        [AllowAnonymous]
+        public ActionResult UserProfile()
+        {
+            return View();
+        }
 
         protected override void Dispose(bool disposing)
         {
