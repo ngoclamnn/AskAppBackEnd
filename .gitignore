@@ -16,3 +16,8 @@
 /packages
 /AskAppBackEndOld.WebServiceAPI/bin
 /AskAppBackEndOld.WebServiceAPI/obj/Debug
+/AskAppBackEnd.Services/obj/Release
+/.vs
+/AskAppBackEnd.Autofac.Integration/obj
+/AskAppBackEnd.Core/obj/
+/AskAppBackEnd.Data/obj/
