@@ -51,17 +51,17 @@ namespace AskApp.Website
             manager.UserValidator = new UserValidator<ApplicationUser, Guid>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
-                //RequireUniqueEmail = true
+                RequireUniqueEmail = true
             };
 
             // Configure validation logic for passwords
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
-                RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
+                //RequireNonLetterOrDigit = true,
+                //RequireDigit = true,
+                //RequireLowercase = true,
+                //RequireUppercase = true,
             };
 
             // Configure user lockout defaults

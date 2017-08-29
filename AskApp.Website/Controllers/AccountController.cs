@@ -151,7 +151,13 @@ namespace AskApp.Website.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                if (model.AgreeTerms == false)
+                {
+                    ModelState.AddModelError("AgreeTerms", "You must agree to the Terms and Conditions");
+                    return View(model);
+                }
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,PhoneNumber = model.PhoneNumber, Firstname = model.FirstName, Lastname = model.LastName };
+                user.LastEditDate = user.CreationDate = DateTime.Now;
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -163,7 +169,7 @@ namespace AskApp.Website.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("UserProfile", "Account");
                 }
                 AddErrors(result);
             }
@@ -387,7 +393,7 @@ namespace AskApp.Website.Controllers
 
         //
         // POST: /Account/LogOff
-        [HttpPost]
+        //[HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
@@ -402,10 +408,17 @@ namespace AskApp.Website.Controllers
         {
             return View();
         }
-        [AllowAnonymous]
+
         public ActionResult UserProfile()
         {
             return View();
+        }
+
+        public ActionResult NavigationPanel()
+        {
+            ApplicationUser user =  UserManager.FindByNameAsync(User.Identity.Name).Result;
+            ViewBag.User = user;
+            return PartialView("_NavigationPanel");
         }
 
         protected override void Dispose(bool disposing)

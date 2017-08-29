@@ -79,6 +79,13 @@ namespace AskApp.Website.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public bool AgreeTerms { get; set; }
+        [Required(ErrorMessage = "First name is required.")]
+        public string FirstName { get; set; }
+        [Required(ErrorMessage = "Last name is required.")]
+        public string LastName { get; set; }
+        public string PhoneNumber { get; set; }
     }
 
     public class ResetPasswordViewModel
