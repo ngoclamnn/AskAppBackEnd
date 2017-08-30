@@ -373,7 +373,8 @@ namespace AskApp.Website.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, PhoneNumber = model.PhoneNumber, Firstname = model.FirstName, Lastname = model.LastName };
+                user.LastEditDate = user.CreationDate = DateTime.Now;
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
@@ -394,7 +395,7 @@ namespace AskApp.Website.Controllers
         //
         // POST: /Account/LogOff
         //[HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
@@ -414,11 +415,16 @@ namespace AskApp.Website.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public ActionResult NavigationPanel()
         {
-            ApplicationUser user =  UserManager.FindByNameAsync(User.Identity.Name).Result;
-            ViewBag.User = user;
-            return PartialView("_NavigationPanel");
+            if (Request.IsAuthenticated)
+            {
+                ApplicationUser user = UserManager.FindByNameAsync(User.Identity.Name).Result;
+                ViewBag.User = user;
+                return PartialView("_NavigationPanel");
+            }
+            return Content(string.Empty);
         }
 
         protected override void Dispose(bool disposing)

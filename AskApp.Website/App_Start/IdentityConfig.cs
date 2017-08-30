@@ -51,7 +51,7 @@ namespace AskApp.Website
             manager.UserValidator = new UserValidator<ApplicationUser, Guid>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
-                RequireUniqueEmail = true
+                RequireUniqueEmail = false
             };
 
             // Configure validation logic for passwords
