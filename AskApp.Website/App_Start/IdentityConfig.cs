@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using AskApp.Website.Models;
+using System.Net.Mail;
+using System.Configuration;
 
 namespace AskApp.Website
 {
@@ -19,7 +21,9 @@ namespace AskApp.Website
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            SmtpClient client = new SmtpClient();
+            var mailMessage = new MailMessage(ConfigurationManager.AppSettings["AdminEmail"], message.Destination, message.Subject, message.Body) { IsBodyHtml = true };
+            return client.SendMailAsync(mailMessage);
         }
     }
 

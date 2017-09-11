@@ -63,11 +63,35 @@ namespace AskApp.Website
             {
                 AppId = "118809175514155",
                 AppSecret = "245328192aed947a8e12e24e3f091f01",
-                BackchannelHttpHandler = new FacebookBackChannelHandler(),
-                UserInformationEndpoint = "https://graph.facebook.com/v2.4/me?fields=id,name,email,first_name,last_name",
                 Scope = { "email,public_profile" }
             };
-                app.UseFacebookAuthentication(fbOptions);
+            fbOptions.Fields.Add("name");
+            fbOptions.Fields.Add("email");
+            fbOptions.Fields.Add("first_name");
+            fbOptions.Fields.Add("last_name");
+
+            fbOptions.Provider = new FacebookAuthenticationProvider()
+            {
+                OnAuthenticated = (context) =>
+                {
+                    // Attach the access token if you need it later on for calls on behalf of the user
+                    context.Identity.AddClaim(new System.Security.Claims.Claim("FacebookAccessToken", context.AccessToken));
+
+                    foreach (var claim in context.User)
+                    {
+                        //var claimType = string.Format("urn:facebook:{0}", claim.Key);
+                        var claimType = string.Format("{0}", claim.Key);
+                        string claimValue = claim.Value.ToString();
+
+                        if (!context.Identity.HasClaim(claimType, claimValue))
+                            context.Identity.AddClaim(new System.Security.Claims.Claim(claimType, claimValue, "XmlSchemaString", "Facebook"));
+                    }
+
+                    return Task.FromResult(0);
+                }
+            };
+
+            app.UseFacebookAuthentication(fbOptions);
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
@@ -84,6 +108,7 @@ namespace AskApp.Website
             if (!request.RequestUri.AbsolutePath.Contains("/oauth"))
             {
                 request.RequestUri = new Uri(request.RequestUri.AbsoluteUri.Replace("?access_token", "&access_token"));
+
             }
 
             return await base.SendAsync(request, cancellationToken);

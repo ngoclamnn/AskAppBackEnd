@@ -90,49 +90,47 @@
                     <button type="submit" class="col btn btn-primary btn-block btn-flat">Register</button>
                 </div>
                 <div class="col-xs-8 col-xs-offset-2">
-                    <div class="social-auth-links text-center">
-                        <p>- OR -</p>
-                        <a href="/eAsk/pages/layout/user-home" class="btn btn-block btn-social btn-facebook btn-flat col-xs-4"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
-                        <br />
-                        <a href="@Url.Action("Register","Account")" class="text-center">I already have an account</a>
+                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+
+                    <div class="col-xs-8 col-xs-offset-2">
+                        <a href="@Url.Action("Login","Account")" class="text-center">I already have an account</a>
                     </div>
                 </div>
+
             </div>
-            
+            <!-- /.form-box -->
         </div>
-        <!-- /.form-box -->
-    </div>
-    <!-- /.register-box -->
-    <!-- jQuery 2.1.4 -->
-    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+        <!-- /.register-box -->
+        <!-- jQuery 2.1.4 -->
+        <script src="~/Scripts/jquery-3.1.1.min.js"></script>
 
-    <!-- AdminLTE for demo purposes -->
+        <!-- AdminLTE for demo purposes -->
 
-    <link href="~/Scripts/plugins/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" />
-    <!-- piexif.min.js is only needed if you wish to resize images before upload to restore exif data.
-         This must be loaded before fileinput.min.js -->
-    <script src="~/Scripts/plugins/bootstrap-fileinput/js/plugins/piexif.js"></script>
-    <!-- sortable.min.js is only needed if you wish to sort / rearrange files in initial preview.
-         This must be loaded before fileinput.min.js -->
-    <script src="~/Scripts/plugins/bootstrap-fileinput/js/plugins/sortable.js"></script>
-    <!-- purify.min.js is only needed if you wish to purify HTML content in your preview for HTML files.
-         This must be loaded before fileinput.min.js -->
-    <script src="~/Scripts/plugins/bootstrap-fileinput/js/plugins/purify.min.js"></script>
-    <!-- the main fileinput plugin file -->
-    <script src="~/Scripts/plugins/bootstrap-fileinput/js/fileinput.min.js"></script>
-    <!-- bootstrap.js below is needed if you wish to zoom and view file content
-         in a larger detailed modal dialog -->
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <!-- optionally if you need a theme like font awesome theme you can include
-        it as mentioned below -->
-    @*<script src="path/to/themes/fa/theme.js"></script>*@
-    <!-- optionally if you need translation for your language then include
-        locale file as mentioned below -->
-    @*<script src="path/to/js/locales/<lang>.js"></script>*@
+        <link href="~/Scripts/plugins/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" />
+        <!-- piexif.min.js is only needed if you wish to resize images before upload to restore exif data.
+             This must be loaded before fileinput.min.js -->
+        <script src="~/Scripts/plugins/bootstrap-fileinput/js/plugins/piexif.js"></script>
+        <!-- sortable.min.js is only needed if you wish to sort / rearrange files in initial preview.
+             This must be loaded before fileinput.min.js -->
+        <script src="~/Scripts/plugins/bootstrap-fileinput/js/plugins/sortable.js"></script>
+        <!-- purify.min.js is only needed if you wish to purify HTML content in your preview for HTML files.
+             This must be loaded before fileinput.min.js -->
+        <script src="~/Scripts/plugins/bootstrap-fileinput/js/plugins/purify.min.js"></script>
+        <!-- the main fileinput plugin file -->
+        <script src="~/Scripts/plugins/bootstrap-fileinput/js/fileinput.min.js"></script>
+        <!-- bootstrap.js below is needed if you wish to zoom and view file content
+             in a larger detailed modal dialog -->
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <!-- optionally if you need a theme like font awesome theme you can include
+            it as mentioned below -->
+        @*<script src="path/to/themes/fa/theme.js"></script>*@
+        <!-- optionally if you need translation for your language then include
+            locale file as mentioned below -->
+        @*<script src="path/to/js/locales/<lang>.js"></script>*@
 
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
 </body>
 <style type="text/css">
     .kv-avatar .krajee-default.file-preview-frame, .kv-avatar .krajee-default.file-preview-frame:hover {

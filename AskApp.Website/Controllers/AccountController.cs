@@ -22,7 +22,7 @@ namespace AskApp.Website.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -34,9 +34,9 @@ namespace AskApp.Website.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -120,7 +120,7 @@ namespace AskApp.Website.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -156,18 +156,18 @@ namespace AskApp.Website.Controllers
                     ModelState.AddModelError("AgreeTerms", "You must agree to the Terms and Conditions");
                     return View(model);
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,PhoneNumber = model.PhoneNumber, Firstname = model.FirstName, Lastname = model.LastName };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, PhoneNumber = model.PhoneNumber, Firstname = model.FirstName, Lastname = model.LastName };
                 user.LastEditDate = user.CreationDate = DateTime.Now;
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                    //For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+                    //Send an email with this link
+                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     return RedirectToAction("UserProfile", "Account");
                 }
@@ -215,12 +215,12 @@ namespace AskApp.Website.Controllers
                     return View("ForgotPasswordConfirmation");
                 }
 
-                // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                // Send an email with this link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                //For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+                //Send an email with this link
+                 string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 
             // If we got this far, something failed, redisplay form
@@ -346,10 +346,16 @@ namespace AskApp.Website.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = false });
                 case SignInStatus.Failure:
                 default:
-                    // If the user does not have an account, then prompt the user to create an account
-                    ViewBag.ReturnUrl = returnUrl;
-                    ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                    {
+                        // If the user does not have an account, then prompt the user to create an account
+                        ViewBag.ReturnUrl = returnUrl;
+                        ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
+                        //var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+                        var firstName = loginInfo.ExternalIdentity.Claims.First(c => c.Type == "first_name").Value;
+                        var lastName = loginInfo.ExternalIdentity.Claims.First(c => c.Type == "last_name").Value;
+
+                        return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email, FirstName = firstName, LastName = lastName });
+                    }
             }
         }
 
@@ -399,7 +405,7 @@ namespace AskApp.Website.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         //
@@ -416,13 +422,13 @@ namespace AskApp.Website.Controllers
         }
 
         [AllowAnonymous]
-        public ActionResult NavigationPanel()
+        public ActionResult NavigationPanel(bool hasSideBar = true)
         {
             if (Request.IsAuthenticated)
             {
                 ApplicationUser user = UserManager.FindByNameAsync(User.Identity.Name).Result;
                 ViewBag.User = user;
-                return PartialView("_NavigationPanel");
+                return PartialView("_NavigationPanel", hasSideBar);
             }
             return Content(string.Empty);
         }
