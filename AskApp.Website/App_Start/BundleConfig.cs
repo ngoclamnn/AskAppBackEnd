@@ -23,6 +23,11 @@ namespace AskApp.Website
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/accountJs").Include(
+                      "~/Scripts/account.js"));
+            bundles.Add(new StyleBundle("~/Content/accountCss").Include(
+                      "~/Content/account.css"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));

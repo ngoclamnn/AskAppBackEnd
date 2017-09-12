@@ -420,6 +420,14 @@ namespace AskApp.Website.Controllers
         {
             return View();
         }
+        public ActionResult EditProfile(EditProfileViewModel model)
+        {
+            if (model.AgreeTerms == false)
+            {
+                ModelState.AddModelError("AgreeTerms", "You must agree to the Terms and Conditions");
+            }
+            return RedirectToAction("UserProfile", model);
+        }
 
         [AllowAnonymous]
         public ActionResult NavigationPanel(bool hasSideBar = true)

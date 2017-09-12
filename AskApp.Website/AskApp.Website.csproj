@@ -202,18 +202,48 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\account.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\avatar.png" />
+    <Content Include="Content\images\avatar04.png" />
+    <Content Include="Content\images\avatar2.png" />
+    <Content Include="Content\images\avatar3.png" />
+    <Content Include="Content\images\avatar5.png" />
+    <Content Include="Content\images\boxed-bg.jpg" />
+    <Content Include="Content\images\boxed-bg.png" />
+    <Content Include="Content\images\credit\american-express.png" />
+    <Content Include="Content\images\credit\cirrus.png" />
+    <Content Include="Content\images\credit\mastercard.png" />
+    <Content Include="Content\images\credit\mestro.png" />
+    <Content Include="Content\images\credit\paypal.png" />
+    <Content Include="Content\images\credit\paypal2.png" />
+    <Content Include="Content\images\credit\visa.png" />
+    <Content Include="Content\images\default-50x50.gif" />
     <Content Include="Content\images\default_avatar_male.jpg" />
+    <Content Include="Content\images\icons.png" />
+    <Content Include="Content\images\photo1.png" />
+    <Content Include="Content\images\photo2.png" />
+    <Content Include="Content\images\photo3.jpg" />
+    <Content Include="Content\images\photo4.jpg" />
     <Content Include="Content\images\profiles\user2-160x160.jpg" />
+    <Content Include="Content\images\user1-128x128.jpg" />
+    <Content Include="Content\images\user2-160x160.jpg" />
+    <Content Include="Content\images\user3-128x128.jpg" />
+    <Content Include="Content\images\user4-128x128.jpg" />
+    <Content Include="Content\images\user5-128x128.jpg" />
+    <Content Include="Content\images\user6-128x128.jpg" />
+    <Content Include="Content\images\user7-128x128.jpg" />
+    <Content Include="Content\images\user8-128x128.jpg" />
     <Content Include="Content\skin-blue.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\AdminLTE.min.css" />
+    <Content Include="Scripts\account.js" />
     <Content Include="Scripts\AdminLTE.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -338,6 +368,7 @@
     <Content Include="Views\Shared\_SideBar.cshtml" />
     <Content Include="Views\Shared\_ControlSideBar.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_AccountLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

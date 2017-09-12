@@ -14,7 +14,7 @@
     <!-- Theme style -->
     <link href="~/Content/AdminLTE.min.css" rel="stylesheet" />
     <link href="~/Content/skin-blue.css" rel="stylesheet" />
-
+    @RenderSection("styleSheets", required: false)
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -46,26 +46,20 @@
         {
             @Html.Partial("_SideBar")
         }
-        else
-        {
-        }
-
-
-
         <!-- =============================================== -->
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <div class="container">
                 <!-- Content Header (Page header) -->
                 @if (IsSectionDefined("PageHeader"))
-            {
-                RenderSection("PageHeader");
-            }
-            else
-            {
+                {
+                    RenderSection("PageHeader");
+                }
+                else
+                {
                     <section class="content-header">
                         <h1>
-                            Page name
+                            @ViewBag.Title
                         </h1>
                         <ol class="breadcrumb">
                             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -74,14 +68,12 @@
                         </ol>
                     </section>
                 }
-
-
-
-                @RenderBody()
+                <section class="content">
+                    @RenderBody()
+                </section>
             </div>
             <!-- /.row -->
             <!-- /.content -->
-
         </div>
         <!-- /.content-wrapper -->
         @Html.Partial("_Footer")
@@ -93,7 +85,7 @@
         <div class="control-sidebar-bg" style="position: fixed; height: auto;"></div>
     </div>
     <!-- ./wrapper -->
-    <!-- jQuery 2.1.4 -->
+    <!-- jQuery -->
     <script src="~/Scripts/jquery-3.1.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/plugins/jquery.slimscroll.min.js"></script>
