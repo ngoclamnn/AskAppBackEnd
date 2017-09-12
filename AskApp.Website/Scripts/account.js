@@ -3,7 +3,10 @@
         'onclick="alert(\'Call your custom code here.\')">' +
         '<i class="glyphicon glyphicon-tag"></i>' +
         '</button>';
-    $("#ProfileImage").fileinput({
+    var fileInput = $("#ProfileImage");
+    var imageUrl = fileInput.data('profile');
+    var imagePreviewSrc = imageUrl != null ? imageUrl : '/content/images/default_avatar_male.jpg';
+    fileInput.fileinput({
         overwriteInitial: true,
         maxFileSize: 2048,
         showClose: false,
@@ -15,10 +18,14 @@
         removeTitle: 'Cancel or reset changes',
         elErrorContainer: '#kv-avatar-errors-2',
         msgErrorClass: 'alert alert-block alert-danger',
-        defaultPreviewContent: '<img src="/content/images/default_avatar_male.jpg" alt="Your Avatar" style="width:160px"><h6 class="text-muted">Click to select</h6>',
+        defaultPreviewContent: '<img src="' + imagePreviewSrc + '" alt="Your Avatar" style="width:160px"><h6 class="text-muted">Click to select</h6>',
         layoutTemplates: { main2: '{preview} ' + ' {remove} {browse}' },
         allowedFileExtensions: ["jpg", "png", "gif"]
     });
+    if (isEditingProfile)
+    {
+        $('#profile-tab a:last').tab('show')
+    }
 }
 
 $(function () {

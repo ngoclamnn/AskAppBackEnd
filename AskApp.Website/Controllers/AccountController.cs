@@ -171,7 +171,7 @@ namespace AskApp.Website.Controllers
                     var path = Path.Combine(Server.MapPath(uploadProfileFolder), fileName);
                     model.ProfileImage.SaveAs(path);
                 }
-                
+
                 var user = new ApplicationUser { Id = Guid.NewGuid(), UserName = model.Email, Email = model.Email, PhoneNumber = model.PhoneNumber, Firstname = model.FirstName, Lastname = model.LastName, ProfilePicture = profilePath };
                 user.LastEditDate = user.CreationDate = DateTime.Now;
                 var result = await UserManager.CreateAsync(user, model.Password);
@@ -435,15 +435,52 @@ namespace AskApp.Website.Controllers
         public ActionResult UserProfile()
         {
             ApplicationUser user = UserManager.FindByNameAsync(User.Identity.Name).Result;
+        
+
+
+            if (TempData["ViewData"] != null)
+            {
+                ViewData = (ViewDataDictionary)TempData["ViewData"];
+                ViewBag.EditProfile = true;
+            }
+            else
+            {
+                ViewBag.EditProfile = false;
+                ViewData.Model = new EditProfileViewModel
+                {
+                    AgreeTerms = false,
+                    Email = user.Email,
+                    Password = user.Password,
+                    FirstName = user.Firstname,
+                    LastName = user.Lastname
+                };
+            }
             ViewBag.User = user;
             return View();
         }
         public ActionResult EditProfile(EditProfileViewModel model)
         {
-            if (model.AgreeTerms == false)
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError("AgreeTerms", "You must agree to the Terms and Conditions");
+                if (model.AgreeTerms == false)
+                {
+                    ModelState.AddModelError("AgreeTerms", "You must agree to the Terms and Conditions");
+                }
+                else
+                {
+                    ApplicationUser user = UserManager.FindByNameAsync(User.Identity.Name).Result;
+                    if (model.Password != "**********" && model.ConfirmPassword != "**********")
+                    {
+                        var token = UserManager.GeneratePasswordResetToken(user.Id);
+                        var result = UserManager.ResetPassword(user.Id, token, model.Password);
+                    }
+                    user.Firstname = model.FirstName;
+                    user.Lastname = model.LastName;
+                    user.Email = model.Email;
+                    UserManager.Update(user);
+                }
             }
+            TempData["ViewData"] = ViewData;
             return RedirectToAction("UserProfile", model);
         }
 

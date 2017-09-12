@@ -5,6 +5,7 @@
     ViewBag.Title = "Register your account";
 }
 @section stylesheets {
+    <link href="~/Scripts/plugins/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" />
     @Styles.Render("~/Content/accountCss")
 }
 
@@ -88,7 +89,7 @@
 <!-- /.register-box -->
 <!-- jQuery -->
 @section Scripts {
-    <link href="~/Scripts/plugins/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" />
+
     <!-- piexif.min.js is only needed if you wish to resize images before upload to restore exif data.
          This must be loaded before fileinput.min.js -->
     <script src="~/Scripts/plugins/bootstrap-fileinput/js/plugins/piexif.js"></script>
