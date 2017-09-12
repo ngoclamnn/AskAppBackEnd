@@ -28,3 +28,7 @@
 body {
     overflow-y: hidden
 }
+
+.krajee-default.file-preview-frame:hover:not(.file-preview-error) {
+    box-shadow: none !important
+}

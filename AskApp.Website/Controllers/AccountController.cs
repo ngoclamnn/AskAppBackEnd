@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using AskApp.Website.Models;
+using System.IO;
 
 namespace AskApp.Website.Controllers
 {
@@ -156,7 +157,22 @@ namespace AskApp.Website.Controllers
                     ModelState.AddModelError("AgreeTerms", "You must agree to the Terms and Conditions");
                     return View(model);
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, PhoneNumber = model.PhoneNumber, Firstname = model.FirstName, Lastname = model.LastName };
+                if (model.ProfileImage.ContentLength > 2048 * 1024)
+                {
+                    ModelState.AddModelError("ProfileImage", "The file size must not greater than 2 MB");
+                    return View(model);
+                }
+                var profilePath = string.Empty;
+                if (model.ProfileImage.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(model.ProfileImage.FileName);
+                    var uploadProfileFolder = "~/Content/Images/profiles/";
+                    profilePath = uploadProfileFolder + fileName;
+                    var path = Path.Combine(Server.MapPath(uploadProfileFolder), fileName);
+                    model.ProfileImage.SaveAs(path);
+                }
+                
+                var user = new ApplicationUser { Id = Guid.NewGuid(), UserName = model.Email, Email = model.Email, PhoneNumber = model.PhoneNumber, Firstname = model.FirstName, Lastname = model.LastName, ProfilePicture = profilePath };
                 user.LastEditDate = user.CreationDate = DateTime.Now;
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -165,7 +181,7 @@ namespace AskApp.Website.Controllers
 
                     //For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     //Send an email with this link
-                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
@@ -217,7 +233,7 @@ namespace AskApp.Website.Controllers
 
                 //For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                 //Send an email with this link
-                 string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
                 var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                 await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
                 return RedirectToAction("ForgotPasswordConfirmation", "Account");

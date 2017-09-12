@@ -14,13 +14,13 @@
     </div>
     <div class="register-box-body">
         <p class="login-box-msg"><b>Register a new membership</b></p>
-        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
-            {
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form", enctype = "multipart/form-data" }))
+        {
             @Html.AntiForgeryToken()
             <div class="row">
                 <div class="col-xs-4">
                     <div class="kv-avatar center-block text-center" style="width:200px">
-                        <input id="ProfileImage" name="ProfileImage" type="file" class="file-loading" required>
+                        <input id="ProfileImage" name="ProfileImage" type="file" class="file-loading" />
                     </div>
                 </div>
                 <div class="col-xs-8">
@@ -64,11 +64,14 @@
                 </div>
             </div>
 
+
+            <div class="row">
+                <div class="col-xs-4 col-xs-offset-4">
+                    <button type="submit" class="col btn btn-primary btn-block btn-flat">Register</button>
+                </div>
+            </div>
         }
         <div class="row">
-            <div class="col-xs-4 col-xs-offset-4">
-                <button type="submit" class="col btn btn-primary btn-block btn-flat">Register</button>
-            </div>
             <div class="col-xs-6 col-xs-offset-3">
                 @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
 
@@ -78,6 +81,7 @@
             </div>
 
         </div>
+
         <!-- /.form-box -->
     </div>
 </div>
