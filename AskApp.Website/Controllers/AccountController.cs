@@ -434,6 +434,8 @@ namespace AskApp.Website.Controllers
 
         public ActionResult UserProfile()
         {
+            ApplicationUser user = UserManager.FindByNameAsync(User.Identity.Name).Result;
+            ViewBag.User = user;
             return View();
         }
         public ActionResult EditProfile(EditProfileViewModel model)
